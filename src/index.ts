@@ -11,11 +11,22 @@ export type {
   BadgesOptions,
   ProgressOptions,
   GamificationOptions,
+  ReactionType,
+  ReactionCounts,
+  ReactionConfig,
+  FeedbackDimension,
+  DifficultyOption,
+  EngagementOption,
+  ModuleFeedbackCounts,
+  ModuleFeedbackSelections,
+  FeedbackOptionConfig,
 } from './types'
 
 // Utils
 export { createStorage } from './utils/storage'
 export { fireConfetti, fireBadgeConfetti } from './utils/confetti'
+export { REACTIONS } from './utils/reactions'
+export { DIFFICULTY_OPTIONS, ENGAGEMENT_OPTIONS } from './utils/feedback'
 
 // Composables
 export { useReadTracker } from './composables/useReadTracker'
@@ -28,6 +39,10 @@ export { useProgress } from './composables/useProgress'
 export type { UseProgressReturn } from './composables/useProgress'
 export { useGamification } from './composables/useGamification'
 export type { UseGamificationReturn } from './composables/useGamification'
+export { useReactions } from './composables/useReactions'
+export type { UseReactionsReturn, UseReactionsOptions } from './composables/useReactions'
+export { useModuleFeedback } from './composables/useModuleFeedback'
+export type { UseModuleFeedbackReturn, UseModuleFeedbackOptions } from './composables/useModuleFeedback'
 
 // Components
 export { default as BadgeCard } from './components/BadgeCard.vue'
@@ -36,3 +51,5 @@ export { default as StreakCounter } from './components/StreakCounter.vue'
 export { default as ProgressBar } from './components/ProgressBar.vue'
 export { default as AchievementToast } from './components/AchievementToast.vue'
 export { default as GamificationDashboard } from './components/GamificationDashboard.vue'
+export { default as ReactionBar } from './components/ReactionBar.vue'
+export { default as ModuleFeedback } from './components/ModuleFeedback.vue'

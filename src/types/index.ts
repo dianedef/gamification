@@ -66,3 +66,42 @@ export interface GamificationOptions {
   gracePeriodHours?: number
   onBadgeEarned?: (badge: Badge) => void
 }
+
+// Reaction types
+export type ReactionType = 'upvote' | 'funny' | 'love' | 'surprised' | 'angry' | 'sad'
+
+// Module Feedback types
+export type FeedbackDimension = 'difficulty' | 'engagement'
+export type DifficultyOption = 'easy' | 'justRight' | 'hard'
+export type EngagementOption = 'boring' | 'interesting' | 'fascinating'
+
+export interface ModuleFeedbackCounts {
+  difficulty: { easy: number; justRight: number; hard: number }
+  engagement: { boring: number; interesting: number; fascinating: number }
+}
+
+export interface ModuleFeedbackSelections {
+  difficulty: DifficultyOption | null
+  engagement: EngagementOption | null
+}
+
+export interface FeedbackOptionConfig {
+  key: DifficultyOption | EngagementOption
+  emoji: string
+  label: string
+}
+
+export interface ReactionCounts {
+  upvote: number
+  funny: number
+  love: number
+  surprised: number
+  angry: number
+  sad: number
+}
+
+export interface ReactionConfig {
+  type: ReactionType
+  emoji: string
+  label: string
+}
