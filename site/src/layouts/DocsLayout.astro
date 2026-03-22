@@ -1,0 +1,287 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
+import Sidebar from '../components/navigation/Sidebar.astro';
+import TableOfContents from '../components/navigation/TableOfContents.astro';
+import PrevNext from '../components/navigation/PrevNext.astro';
+import ReadingProgress from '../components/ReadingProgress.vue';
+import GamificationBar from '../components/GamificationBar.vue';
+import ArticleReward from '../components/ArticleReward.vue';
+import '../styles/global.css';
+
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+interface SidebarLink {
+  label: string;
+  link: string;
+}
+
+interface SidebarGroup {
+  label: string;
+  collapsed?: boolean;
+  items: (SidebarLink | SidebarGroup)[];
+}
+
+interface NavItem {
+  label: string;
+  link: string;
+}
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  headings?: Heading[];
+  sidebar?: SidebarGroup[];
+  breadcrumbs?: BreadcrumbItem[];
+  prev?: NavItem;
+  next?: NavItem;
+  currentPath?: string;
+}
+
+const {
+  title,
+  description,
+  headings = [],
+  sidebar,
+  breadcrumbs,
+  prev,
+  next,
+  currentPath = Astro.url.pathname,
+} = Astro.props;
+
+const showSidebar = sidebar && sidebar.length > 0;
+const showToc = headings.filter((h) => h.depth >= 2 && h.depth <= 3).length > 1;
+const pageTitle = title ? `${title} — Gamification` : 'Gamification';
+const metaDescription =
+  description ??
+  'Base de connaissances sur la gamification : comprendre, concevoir et implémenter des systèmes engageants et éthiques.';
+const articleSlug = Astro.url.pathname;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/og-default.png', Astro.site);
+
+const articleJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: metaDescription,
+  url: canonicalURL.href,
+  inLanguage: 'fr',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Gamification',
+    url: Astro.site?.href,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL.href,
+  },
+});
+
+const breadcrumbJsonLd = breadcrumbs && breadcrumbs.length > 0
+  ? JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.label,
+        item: new URL(item.href, Astro.site).href,
+      })),
+    })
+  : null;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Gamification" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content={ogImageURL.href} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageURL.href} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={articleJsonLd} />
+    {breadcrumbJsonLd && <script type="application/ld+json" set:html={breadcrumbJsonLd} />}
+  </head>
+
+  <body>
+    <ReadingProgress client:load slug={articleSlug} title={title} />
+
+    <a class="skip-link" href="#main-content">Aller au contenu</a>
+    <Header currentPath={currentPath} />
+
+    <div class="site-page">
+      <div
+        class:list={[
+          'docs-grid',
+          showSidebar && 'docs-grid--with-sidebar',
+          showToc && 'docs-grid--with-toc',
+        ]}
+      >
+        {showSidebar && <Sidebar sidebar={sidebar} currentPath={currentPath} />}
+
+        <main id="main-content" class="docs-main">
+          {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+
+          <header class="docs-intro">
+            <h1>{title}</h1>
+            {description && <p class="docs-intro__description">{description}</p>}
+          </header>
+
+          <article class="prose docs-article">
+            <slot />
+            <ArticleReward client:visible slug={articleSlug} title={title} nextLink={next?.link} nextLabel={next?.label} />
+          </article>
+
+          <PrevNext prev={prev} next={next} />
+        </main>
+
+        {showToc && <TableOfContents headings={headings} />}
+      </div>
+    </div>
+
+    <Footer />
+
+    <GamificationBar client:idle slug={articleSlug} title={title} />
+  </body>
+</html>
+
+<style>
+  /* ── Skip link ────────────────────── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-4);
+    z-index: 9999;
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-primary);
+    color: #fff;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: var(--space-2);
+  }
+
+  /* ── Body flex layout ─────────────── */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  /* ── Page wrapper ─────────────────── */
+  .site-page {
+    flex: 1;
+    width: 100%;
+    padding-top: var(--header-height);
+  }
+
+  /* ── Docs grid ────────────────────── */
+  .docs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .docs-grid--with-sidebar {
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
+
+  .docs-grid--with-sidebar.docs-grid--with-toc {
+    grid-template-columns: var(--sidebar-width) 1fr 14rem;
+  }
+
+  @media (max-width: 1024px) {
+    .docs-grid--with-sidebar.docs-grid--with-toc {
+      grid-template-columns: var(--sidebar-width) 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .docs-grid--with-sidebar,
+    .docs-grid--with-sidebar.docs-grid--with-toc {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Main content ─────────────────── */
+  .docs-main {
+    min-width: 0;
+  }
+
+  /* ── Article with gradient border-left ── */
+  .docs-article {
+    border-left: 2px solid transparent;
+    border-image: var(--gradient-primary) 1;
+    padding-left: var(--space-6);
+  }
+
+  /* ── Intro ────────────────────────── */
+  .docs-intro {
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .docs-intro h1 {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-gray-950);
+    margin-bottom: var(--space-2);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .docs-intro__description {
+    font-size: var(--text-lg);
+    color: var(--color-text-soft);
+    line-height: var(--leading-relaxed);
+    max-width: 60ch;
+  }
+
+  @media (min-width: 640px) {
+    .docs-intro h1 {
+      font-size: var(--text-4xl);
+    }
+  }
+</style>

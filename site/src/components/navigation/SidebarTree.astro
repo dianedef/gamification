@@ -1,0 +1,92 @@
+---
+import {
+  entryHasCurrentPath,
+  groupHasCurrentPath,
+  isCurrentPath,
+  isNavLink,
+  type NavEntry,
+  type NavGroup,
+} from '../../lib/navigation';
+
+interface Props {
+  currentPath: string;
+  items: NavEntry[];
+}
+
+const { currentPath, items } = Astro.props;
+---
+
+<ul class="sidebar-tree">
+  {items.map((item) =>
+    isNavLink(item) ? (
+      <li>
+        <a class:list={['sidebar-tree__link', isCurrentPath(item.link, currentPath) && 'is-current']} href={item.link}>
+          {item.label}
+        </a>
+      </li>
+    ) : (
+      <li>
+        <details
+          class="sidebar-tree__group"
+          open={item.collapsed === false || groupHasCurrentPath(item as NavGroup, currentPath)}
+        >
+          <summary>{item.label}</summary>
+          <Astro.self currentPath={currentPath} items={item.items} />
+        </details>
+      </li>
+    ),
+  )}
+</ul>
+
+<style>
+  .sidebar-tree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-tree .sidebar-tree {
+    padding-left: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .sidebar-tree__link {
+    display: block;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.88rem;
+    color: var(--site-text-light);
+    text-decoration: none;
+    border-radius: var(--site-radius-sm);
+    transition: color 0.15s ease, background 0.15s ease;
+    line-height: 1.4;
+  }
+
+  .sidebar-tree__link:hover {
+    color: var(--site-accent);
+    background: var(--site-accent-subtle);
+  }
+
+  .sidebar-tree__link.is-current {
+    color: var(--site-accent);
+    font-weight: 600;
+    background: var(--site-accent-subtle);
+  }
+
+  .sidebar-tree__group > summary {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--site-text);
+    cursor: pointer;
+    list-style: none;
+    border-radius: var(--site-radius-sm);
+  }
+
+  .sidebar-tree__group > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sidebar-tree__group > summary:hover {
+    color: var(--site-accent);
+  }
+</style>

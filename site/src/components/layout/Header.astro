@@ -1,0 +1,243 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navLinks = [
+  { label: 'Comprendre', href: '/comprendre/' },
+  { label: 'Concevoir', href: '/concevoir/' },
+  { label: 'Cr\u00e9er', href: '/creer/' },
+  { label: 'Valider', href: '/valider/' },
+  { label: "L'humain", href: '/humain/' },
+  { label: 'Outils', href: '/outils/' },
+];
+
+function isActive(href: string, current: string): boolean {
+  if (href === '/') return current === '/';
+  return current.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="/">
+      <span class="site-brand__icon" aria-hidden="true">&#x1F3AE;</span>
+      <span class="site-brand__text">Gamification</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      {navLinks.map((item) => (
+        <a
+          class:list={['site-nav__link', isActive(item.href, currentPath) && 'is-active']}
+          href={item.href}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <details class="mobile-nav">
+      <summary class="mobile-nav__toggle" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </summary>
+      <div class="mobile-nav__panel">
+        {navLinks.map((item) => (
+          <a
+            class:list={['mobile-nav__link', isActive(item.href, currentPath) && 'is-active']}
+            href={item.href}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(8, 8, 13, 0.8);
+  }
+
+  .site-header__inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-6);
+    gap: var(--space-6);
+  }
+
+  /* ── Brand ────────────────────────── */
+  .site-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--color-text);
+    flex-shrink: 0;
+  }
+
+  .site-brand:hover {
+    text-decoration: none;
+  }
+
+  .site-brand:hover .site-brand__text {
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  }
+
+  .site-brand__icon {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-brand__text {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: text-shadow var(--transition-fast);
+  }
+
+  /* ── Desktop nav ──────────────────── */
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .site-nav__link {
+    position: relative;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-soft);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), text-shadow var(--transition-fast);
+  }
+
+  .site-nav__link:hover {
+    color: var(--color-text);
+    text-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+    text-decoration: none;
+  }
+
+  .site-nav__link.is-active {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .site-nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--space-3);
+    right: var(--space-3);
+    height: 2px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+  }
+
+  /* ── Mobile nav ───────────────────── */
+  .mobile-nav {
+    display: none;
+  }
+
+  .mobile-nav__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--color-text);
+    list-style: none;
+    transition: background var(--transition-fast);
+  }
+
+  .mobile-nav__toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav__toggle:hover {
+    background: var(--glass-bg-hover);
+  }
+
+  .mobile-nav__panel {
+    position: absolute;
+    top: calc(var(--header-height) - 4px);
+    right: var(--space-4);
+    background: rgba(14, 14, 22, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl), var(--shadow-glow-sm);
+    padding: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    z-index: 200;
+  }
+
+  .mobile-nav__link {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-soft);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast),
+      text-shadow var(--transition-fast);
+  }
+
+  .mobile-nav__link:hover {
+    color: var(--color-text);
+    background: var(--glass-bg-hover);
+    text-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+    text-decoration: none;
+  }
+
+  .mobile-nav__link.is-active {
+    color: var(--color-text);
+    background: rgba(124, 58, 237, 0.1);
+    font-weight: 600;
+    border-left: 2px solid;
+    border-image: var(--gradient-primary) 1;
+  }
+
+  @media (max-width: 768px) {
+    .site-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
+  }
+</style>

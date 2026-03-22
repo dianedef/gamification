@@ -1,0 +1,76 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <p class="site-footer__eyebrow">Gamification</p>
+      <p class="site-footer__text">
+        Une base de connaissances pour concevoir une gamification qui sert l'humain.
+        Neurosciences, psychologie, frameworks, éthique et outils pratiques.
+      </p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Liens utiles">
+      <a href="/comprendre/neurosciences">Neurosciences</a>
+      <a href="/concevoir/frameworks">Frameworks</a>
+      <a href="/creer/copywriting">Copywriting</a>
+      <a href="/valider/ethique">Éthique</a>
+      <a href="/humain/utilisateur-personne">L'humain</a>
+      <a href="/outils/interactifs">Outils</a>
+      <a href="/outils/glossaire">Glossaire</a>
+    </nav>
+
+    <p class="site-footer__copy">&copy; 2026 Gamification Knowledge Base. Open source.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--site-border);
+    background: var(--site-bg-alt);
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .site-footer__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .site-footer__eyebrow {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--site-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .site-footer__text {
+    font-size: 0.9rem;
+    color: var(--site-muted);
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .site-footer__nav a {
+    font-size: 0.88rem;
+    color: var(--site-text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer__nav a:hover {
+    color: var(--site-accent);
+  }
+
+  .site-footer__copy {
+    font-size: 0.82rem;
+    color: var(--site-muted);
+  }
+</style>

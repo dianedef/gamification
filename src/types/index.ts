@@ -1,3 +1,5 @@
+export type BadgeTier = 'bronze' | 'silver' | 'gold' | 'diamond' | 'legendary'
+
 export interface Badge {
   id: string
   name: string
@@ -6,6 +8,8 @@ export interface Badge {
   condition: BadgeCondition
   category?: string
   secret?: boolean
+  tier?: BadgeTier
+  progress?: () => { current: number; total: number }
 }
 
 export type BadgeCondition = (state: GamificationState) => boolean
@@ -22,6 +26,7 @@ export interface StreakData {
   current: number
   longest: number
   lastVisitDate: string | null
+  freezesAvailable?: number
 }
 
 export interface ProgressEntry {

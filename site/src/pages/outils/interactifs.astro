@@ -1,0 +1,372 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { findSidebarForPath } from '../../lib/navigation';
+import OctalysisScorer from '@/tools/OctalysisScorer.vue';
+import EthicsCanvas from '@/tools/EthicsCanvas.vue';
+import AlignmentDiagnostic from '@/tools/AlignmentDiagnostic.vue';
+import ServiceAudit from '@/tools/ServiceAudit.vue';
+import PortraitEmpathique from '@/tools/PortraitEmpathique.vue';
+import MechanicsChecker from '@/tools/MechanicsChecker.vue';
+import DesirBesoinMatrix from '@/tools/DesirBesoinMatrix.vue';
+
+const currentPath = '/outils/interactifs';
+const sidebarMatch = findSidebarForPath(currentPath);
+const sidebar = sidebarMatch ? [sidebarMatch.sidebar] : undefined;
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Outils', href: '/outils/' },
+  { label: 'Outils interactifs', href: '/outils/interactifs' },
+];
+
+const tools = [
+  {
+    id: 'octalysis',
+    name: 'Octalysis Scorer',
+    description: 'Évalue ta gamification sur les 8 Core Drives du framework Octalysis de Yu-kai Chou. Visualise les forces et faiblesses de ton système.',
+  },
+  {
+    id: 'ethics',
+    name: 'Ethics Canvas',
+    description: "Teste l'éthique d'une mécanique de gamification. Identifie les zones de risque et les améliorations possibles.",
+  },
+  {
+    id: 'alignment',
+    name: 'Alignment Diagnostic',
+    description: "Diagnostique l'alignement entre tes mécaniques de gamification et les objectifs réels de tes utilisateurs.",
+  },
+  {
+    id: 'service-audit',
+    name: 'Service Audit',
+    description: 'Audite ta posture service vs extraction. Vérifie que ta gamification sert les utilisateurs plutôt que de les exploiter.',
+  },
+  {
+    id: 'portrait',
+    name: 'Portrait Empathique',
+    description: "Crée un persona centré sur l'humain. Va au-delà des données démographiques pour comprendre les motivations profondes.",
+  },
+  {
+    id: 'mechanics',
+    name: 'Mechanics Checker',
+    description: 'Checklist des 32 mécaniques de gamification. Identifie celles que tu utilises et celles que tu pourrais ajouter.',
+  },
+  {
+    id: 'desir-besoin',
+    name: 'Désir x Besoin Matrix',
+    description: 'Mappe tes mécaniques sur la matrice désir x besoin. Assure-toi que chaque mécanique répond à un besoin réel.',
+  },
+];
+---
+
+<DocsLayout
+  title="Outils interactifs"
+  description="7 outils pour évaluer, diagnostiquer et améliorer ta gamification. Chaque outil est interactif et utilisable directement dans le navigateur."
+  sidebar={sidebar}
+  breadcrumbs={breadcrumbs}
+  currentPath={currentPath}
+>
+
+  <div class="tools-intro">
+    <p>
+      Ces outils interactifs t'accompagnent dans chaque phase de ta gamification :
+      évaluation, diagnostic éthique, alignement utilisateur, et audit de service.
+      Clique sur un outil pour le déployer.
+    </p>
+  </div>
+
+  <div class="tools-list">
+
+    <!-- Tool 1: Octalysis Scorer -->
+    <div class="tool-card" id="tool-octalysis">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">1</span>
+          <div>
+            <h3 class="tool-card__name">Octalysis Scorer</h3>
+            <p class="tool-card__desc">Évalue ta gamification sur les 8 Core Drives</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="octalysis" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-octalysis" hidden>
+        <OctalysisScorer client:visible />
+      </div>
+    </div>
+
+    <!-- Tool 2: Ethics Canvas -->
+    <div class="tool-card" id="tool-ethics">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">2</span>
+          <div>
+            <h3 class="tool-card__name">Ethics Canvas</h3>
+            <p class="tool-card__desc">Teste l'éthique d'une mécanique</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="ethics" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-ethics" hidden>
+        <EthicsCanvas client:visible />
+      </div>
+    </div>
+
+    <!-- Tool 3: Alignment Diagnostic -->
+    <div class="tool-card" id="tool-alignment">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">3</span>
+          <div>
+            <h3 class="tool-card__name">Alignment Diagnostic</h3>
+            <p class="tool-card__desc">Diagnostique l'alignement avec les objectifs utilisateur</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="alignment" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-alignment" hidden>
+        <AlignmentDiagnostic client:visible />
+      </div>
+    </div>
+
+    <!-- Tool 4: Service Audit -->
+    <div class="tool-card" id="tool-service-audit">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">4</span>
+          <div>
+            <h3 class="tool-card__name">Service Audit</h3>
+            <p class="tool-card__desc">Audite ta posture service vs extraction</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="service-audit" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-service-audit" hidden>
+        <ServiceAudit client:visible />
+      </div>
+    </div>
+
+    <!-- Tool 5: Portrait Empathique -->
+    <div class="tool-card" id="tool-portrait">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">5</span>
+          <div>
+            <h3 class="tool-card__name">Portrait Empathique</h3>
+            <p class="tool-card__desc">Crée un persona centré sur l'humain</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="portrait" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-portrait" hidden>
+        <PortraitEmpathique client:visible />
+      </div>
+    </div>
+
+    <!-- Tool 6: Mechanics Checker -->
+    <div class="tool-card" id="tool-mechanics">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">6</span>
+          <div>
+            <h3 class="tool-card__name">Mechanics Checker</h3>
+            <p class="tool-card__desc">Checklist des 32 mécaniques de gamification</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="mechanics" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-mechanics" hidden>
+        <MechanicsChecker client:visible />
+      </div>
+    </div>
+
+    <!-- Tool 7: Desir x Besoin Matrix -->
+    <div class="tool-card" id="tool-desir-besoin">
+      <div class="tool-card__header">
+        <div class="tool-card__info">
+          <span class="tool-card__number">7</span>
+          <div>
+            <h3 class="tool-card__name">Désir x Besoin Matrix</h3>
+            <p class="tool-card__desc">Mappe tes mécaniques sur la matrice désir x besoin</p>
+          </div>
+        </div>
+        <button class="tool-card__toggle" data-tool="desir-besoin" aria-expanded="false">
+          Lancer l'outil
+        </button>
+      </div>
+      <div class="tool-card__body" id="body-desir-besoin" hidden>
+        <DesirBesoinMatrix client:visible />
+      </div>
+    </div>
+
+  </div>
+
+</DocsLayout>
+
+<script is:inline>
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('.tool-card__toggle');
+    if (!button) return;
+
+    const toolId = button.dataset.tool;
+    const body = document.getElementById('body-' + toolId);
+    if (!body) return;
+
+    const isHidden = body.hidden;
+    body.hidden = !isHidden;
+    button.setAttribute('aria-expanded', String(isHidden));
+    button.textContent = isHidden ? 'Fermer' : "Lancer l'outil";
+
+    if (isHidden) {
+      body.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+</script>
+
+<style>
+  .tools-intro {
+    margin-bottom: var(--space-8);
+  }
+
+  .tools-intro p {
+    font-size: var(--text-base);
+    color: var(--color-text-soft);
+    line-height: var(--leading-relaxed);
+    max-width: 60ch;
+  }
+
+  .tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* ── Tool card ── */
+  .tool-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .tool-card:hover {
+    border-color: var(--color-primary-200);
+  }
+
+  .tool-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    background: var(--color-bg-soft);
+  }
+
+  .tool-card__info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    min-width: 0;
+  }
+
+  .tool-card__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-primary);
+    color: #fff;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+  }
+
+  .tool-card__name {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin: 0;
+    line-height: var(--leading-tight);
+  }
+
+  .tool-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: var(--space-1) 0 0;
+    line-height: 1.4;
+  }
+
+  .tool-card__toggle {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    border: 2px solid var(--color-primary-300);
+    background: transparent;
+    color: var(--color-primary-600);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .tool-card__toggle:hover {
+    background: var(--color-primary-50);
+    border-color: var(--color-primary-400);
+  }
+
+  .tool-card__toggle[aria-expanded='true'] {
+    background: var(--color-primary-600);
+    color: #fff;
+    border-color: var(--color-primary-600);
+  }
+
+  .tool-card__toggle[aria-expanded='true']:hover {
+    background: var(--color-primary-700);
+    border-color: var(--color-primary-700);
+  }
+
+  .tool-card__body {
+    padding: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .tool-card__body[hidden] {
+    display: none;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .tool-card__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .tool-card__toggle {
+      align-self: stretch;
+      justify-content: center;
+    }
+
+    .tool-card__body {
+      padding: var(--space-4);
+    }
+  }
+</style>

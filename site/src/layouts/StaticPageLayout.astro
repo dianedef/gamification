@@ -1,0 +1,276 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../styles/global.css';
+
+interface HeroAction {
+  text: string;
+  link: string;
+  variant?: 'primary' | 'secondary';
+}
+
+interface HeroData {
+  title: string;
+  tagline?: string;
+  actions?: HeroAction[];
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  hero?: HeroData;
+  currentPath?: string;
+}
+
+const {
+  title,
+  description,
+  hero,
+  currentPath = Astro.url.pathname,
+} = Astro.props;
+
+const pageTitle = title ? `${title} — Gamification` : 'Gamification';
+const metaDescription =
+  description ??
+  'Base de connaissances sur la gamification : comprendre, concevoir et implémenter des systèmes engageants et éthiques.';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/og-default.png', Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Gamification" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content={ogImageURL.href} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageURL.href} />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Aller au contenu</a>
+    <Header currentPath={currentPath} />
+
+    <div class="site-page">
+      {hero && (
+        <section class="page-hero">
+          <div class="page-hero__bg"></div>
+          <div class="page-hero__inner">
+            <h1 class="page-hero__title">{hero.title}</h1>
+            {hero.tagline && <p class="page-hero__tagline">{hero.tagline}</p>}
+
+            {hero.actions && hero.actions.length > 0 && (
+              <div class="page-hero__actions">
+                {hero.actions.map((action) => (
+                  <a
+                    class:list={['hero-button', `hero-button--${action.variant ?? 'primary'}`]}
+                    href={action.link}
+                  >
+                    {action.text}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      <main id="main-content" class="static-main">
+        <article class="prose prose--wide">
+          <slot />
+        </article>
+      </main>
+    </div>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  /* ── Skip link ────────────────────── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-4);
+    z-index: 9999;
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-primary);
+    color: #fff;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: var(--space-2);
+  }
+
+  /* ── Body flex layout ─────────────── */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  /* ── Page wrapper ─────────────────── */
+  .site-page {
+    flex: 1;
+    width: 100%;
+    padding-top: var(--header-height);
+  }
+
+  /* ── Hero ──────────────────────────── */
+  .page-hero {
+    position: relative;
+    padding: var(--space-24) var(--space-6) var(--space-20);
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    z-index: 0;
+    animation: hero-gradient-shift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes hero-gradient-shift {
+    0% {
+      opacity: 1;
+      background: linear-gradient(
+        160deg,
+        rgba(124, 58, 237, 0.18) 0%,
+        rgba(8, 8, 13, 1) 40%,
+        rgba(6, 182, 212, 0.12) 100%
+      );
+    }
+    50% {
+      opacity: 1;
+      background: linear-gradient(
+        160deg,
+        rgba(6, 182, 212, 0.12) 0%,
+        rgba(8, 8, 13, 1) 50%,
+        rgba(124, 58, 237, 0.18) 100%
+      );
+    }
+    100% {
+      opacity: 1;
+      background: linear-gradient(
+        160deg,
+        rgba(124, 58, 237, 0.12) 0%,
+        rgba(8, 8, 13, 1) 45%,
+        rgba(6, 182, 212, 0.18) 100%
+      );
+    }
+  }
+
+  .page-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .page-hero__title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-4);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-hero__tagline {
+    font-size: var(--text-lg);
+    color: var(--color-text-soft);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
+    max-width: 56ch;
+    margin-inline: auto;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  /* ── Hero buttons ─────────────────── */
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .hero-button--primary {
+    background: var(--gradient-primary);
+    color: #fff;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hero-button--primary:hover {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.35), 0 0 15px rgba(6, 182, 212, 0.2);
+    transform: translateY(-2px);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .hero-button--secondary {
+    background: var(--glass-bg);
+    color: var(--color-link);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+  }
+
+  .hero-button--secondary:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    color: var(--color-link-hover);
+    text-decoration: none;
+    box-shadow: var(--shadow-glow-sm);
+  }
+
+  /* ── Main content ─────────────────── */
+  .static-main {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-6);
+  }
+
+  .prose--wide {
+    max-width: none;
+  }
+</style>

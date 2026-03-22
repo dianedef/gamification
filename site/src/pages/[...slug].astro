@@ -1,0 +1,84 @@
+---
+import { getCollection, render } from 'astro:content';
+import DocsLayout from '../layouts/DocsLayout.astro';
+import {
+  docPathFromEntryId,
+  slugParamFromEntryId,
+  findSidebarForPath,
+  resolvePrevNext,
+} from '../lib/navigation';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('docs', ({ data, id }) => {
+    const path = docPathFromEntryId(id);
+    return !data.draft && path !== '/';
+  });
+
+  return entries.map((entry) => ({
+    params: {
+      slug: slugParamFromEntryId(entry.id),
+    },
+    props: {
+      currentPath: docPathFromEntryId(entry.id),
+      entry,
+    },
+  }));
+}
+
+const { currentPath, entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+// Resolve sidebar
+const sidebarMatch = findSidebarForPath(currentPath);
+const sidebar = sidebarMatch ? [sidebarMatch.sidebar] : undefined;
+
+// Resolve prev/next
+const { prev, next } = resolvePrevNext(currentPath, {
+  prev: entry.data.prev ? { label: entry.data.prev.text, link: entry.data.prev.link } : undefined,
+  next: entry.data.next ? { label: entry.data.next.text, link: entry.data.next.link } : undefined,
+});
+
+// Build breadcrumbs
+const sectionLabels: Record<string, string> = {
+  comprendre: 'Comprendre',
+  concevoir: 'Concevoir',
+  creer: 'Créer',
+  valider: 'Valider',
+  humain: "L'humain",
+  outils: 'Outils',
+};
+
+function buildBreadcrumbs(path: string, title: string) {
+  const items = [{ label: 'Accueil', href: '/' }];
+  const segments = path.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+  if (segments.length === 0) return items;
+
+  let currentHref = '';
+  for (let i = 0; i < segments.length; i++) {
+    currentHref += `/${segments[i]}`;
+    const isLast = i === segments.length - 1;
+    if (isLast) {
+      items.push({ label: title, href: currentHref });
+    } else {
+      const label = sectionLabels[segments[i]] ?? segments[i].charAt(0).toUpperCase() + segments[i].slice(1).replace(/-/g, ' ');
+      items.push({ label, href: `${currentHref}/` });
+    }
+  }
+  return items;
+}
+
+const breadcrumbs = buildBreadcrumbs(currentPath, entry.data.title);
+---
+
+<DocsLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  headings={headings}
+  sidebar={sidebar}
+  breadcrumbs={breadcrumbs}
+  prev={prev}
+  next={next}
+  currentPath={currentPath}
+>
+  <Content />
+</DocsLayout>
