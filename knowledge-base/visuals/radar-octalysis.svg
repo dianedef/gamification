@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">Octalysis — 8 Core Drives</text>
+  <text x="350" y="50" text-anchor="middle" font-size="13" fill="#64748b">Yu-kai Chou — Framework d'analyse de gamification</text>
+
+  <!-- Center point: 350, 360 -->
+  <!-- Radius: 200 for outer, grid at 50, 100, 150, 200 -->
+
+  <!-- Grid circles -->
+  <polygon points="350,160 484,210 534,360 484,510 350,560 216,510 166,360 216,210" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <polygon points="350,210 442,243 475,360 442,477 350,510 258,477 225,360 258,243" fill="none" stroke="#e2e8f0" stroke-width="0.7"/>
+  <polygon points="350,260 400,277 417,360 400,443 350,460 300,443 283,360 300,277" fill="none" stroke="#f1f5f9" stroke-width="0.5"/>
+  <polygon points="350,310 375,318 383,360 375,402 350,410 325,402 317,360 325,318" fill="none" stroke="#f8fafc" stroke-width="0.5"/>
+
+  <!-- Axis lines -->
+  <line x1="350" y1="360" x2="350" y2="160" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="484" y2="210" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="534" y2="360" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="484" y2="510" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="350" y2="560" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="216" y2="510" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="166" y2="360" stroke="#e2e8f0" stroke-width="0.7"/>
+  <line x1="350" y1="360" x2="216" y2="210" stroke="#e2e8f0" stroke-width="0.7"/>
+
+  <!-- Example data: quit-coke-app BEFORE (low scores) -->
+  <!-- Scores: CD1=3, CD2=5, CD3=3, CD4=3, CD5=1, CD6=2, CD7=2, CD8=2 (out of 10) -->
+  <!-- Scale: score/10 * 200 = distance from center -->
+  <polygon points="350,300 384,285 404,360 384,450 350,520 243,483 203,360 243,270"
+    fill="#ef444433" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Example data: quit-coke-app AFTER (improved scores) -->
+  <!-- Scores: CD1=7, CD2=7, CD3=7, CD4=7, CD5=4, CD6=4, CD7=5, CD8=5 -->
+  <polygon points="350,220 444,235 488,360 444,460 350,480 270,490 258,360 270,243"
+    fill="#6366f133" stroke="#6366f1" stroke-width="2"/>
+
+  <!-- Score dots - AFTER -->
+  <circle cx="350" cy="220" r="5" fill="#6366f1"/>
+  <circle cx="444" cy="235" r="5" fill="#6366f1"/>
+  <circle cx="488" cy="360" r="5" fill="#6366f1"/>
+  <circle cx="444" cy="460" r="5" fill="#6366f1"/>
+  <circle cx="350" cy="480" r="5" fill="#6366f1"/>
+  <circle cx="270" cy="490" r="5" fill="#6366f1"/>
+  <circle cx="258" cy="360" r="5" fill="#6366f1"/>
+  <circle cx="270" cy="243" r="5" fill="#6366f1"/>
+
+  <!-- Labels -->
+  <!-- CD1 - top -->
+  <text x="350" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">CD1</text>
+  <text x="350" y="152" text-anchor="middle" font-size="10" fill="#6d28d9">Epic Meaning</text>
+
+  <!-- CD2 - top right -->
+  <text x="520" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">CD2</text>
+  <text x="520" y="202" text-anchor="middle" font-size="10" fill="#1d4ed8">Accomplishment</text>
+
+  <!-- CD3 - right -->
+  <text x="570" y="356" text-anchor="middle" font-size="12" font-weight="700" fill="#0891b2">CD3</text>
+  <text x="570" y="370" text-anchor="middle" font-size="10" fill="#0e7490">Creativity</text>
+
+  <!-- CD4 - bottom right -->
+  <text x="520" y="536" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">CD4</text>
+  <text x="520" y="550" text-anchor="middle" font-size="10" fill="#047857">Ownership</text>
+
+  <!-- CD5 - bottom -->
+  <text x="350" y="590" text-anchor="middle" font-size="12" font-weight="700" fill="#65a30d">CD5</text>
+  <text x="350" y="604" text-anchor="middle" font-size="10" fill="#4d7c0f">Social Influence</text>
+
+  <!-- CD6 - bottom left -->
+  <text x="180" y="536" text-anchor="middle" font-size="12" font-weight="700" fill="#ca8a04">CD6</text>
+  <text x="180" y="550" text-anchor="middle" font-size="10" fill="#a16207">Scarcity</text>
+
+  <!-- CD7 - left -->
+  <text x="130" y="356" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">CD7</text>
+  <text x="130" y="370" text-anchor="middle" font-size="10" fill="#c2410c">Unpredictability</text>
+
+  <!-- CD8 - top left -->
+  <text x="180" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">CD8</text>
+  <text x="180" y="202" text-anchor="middle" font-size="10" fill="#b91c1c">Loss Avoidance</text>
+
+  <!-- Legend -->
+  <rect x="230" y="625" width="240" height="55" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="250" y1="645" x2="280" y2="645" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="290" y="649" font-size="11" fill="#64748b">Avant (65/800)</text>
+  <line x1="250" y1="665" x2="280" y2="665" stroke="#6366f1" stroke-width="2"/>
+  <text x="290" y="669" font-size="11" fill="#64748b">Après (278/800)</text>
+
+  <!-- Hemispheres -->
+  <text x="170" y="74" font-size="10" fill="#94a3b8">← White Hat (intrinsèque)</text>
+  <text x="530" y="74" font-size="10" fill="#94a3b8" text-anchor="end">Black Hat (extrinsèque) →</text>
+</svg>

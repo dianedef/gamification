@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="spectre" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="35%" style="stop-color:#eab308"/>
+      <stop offset="65%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">Le spectre éthique de la gamification</text>
+
+  <!-- Gradient bar -->
+  <rect x="50" y="60" width="800" height="24" rx="12" fill="url(#spectre)" filter="url(#shadow)"/>
+
+  <!-- Zone markers -->
+  <line x1="250" y1="55" x2="250" y2="89" stroke="#fff" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="450" y1="55" x2="450" y2="89" stroke="#fff" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="650" y1="55" x2="650" y2="89" stroke="#fff" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Zone labels -->
+  <text x="150" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#16a34a">MOTIVATION</text>
+  <text x="350" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#ca8a04">PERSUASION</text>
+  <text x="550" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#ea580c">MANIPULATION</text>
+  <text x="750" y="110" text-anchor="middle" font-size="16" font-weight="700" fill="#dc2626">COERCITION</text>
+
+  <!-- Descriptions -->
+  <text x="150" y="135" text-anchor="middle" font-size="12" fill="#64748b">L'utilisateur</text>
+  <text x="150" y="150" text-anchor="middle" font-size="12" fill="#64748b">choisit librement</text>
+
+  <text x="350" y="135" text-anchor="middle" font-size="12" fill="#64748b">L'utilisateur</text>
+  <text x="350" y="150" text-anchor="middle" font-size="12" fill="#64748b">est guidé vers</text>
+  <text x="350" y="165" text-anchor="middle" font-size="12" fill="#64748b">un bon choix</text>
+
+  <text x="550" y="135" text-anchor="middle" font-size="12" fill="#64748b">L'utilisateur</text>
+  <text x="550" y="150" text-anchor="middle" font-size="12" fill="#64748b">est trompé</text>
+  <text x="550" y="165" text-anchor="middle" font-size="12" fill="#64748b">ou exploité</text>
+
+  <text x="750" y="135" text-anchor="middle" font-size="12" fill="#64748b">L'utilisateur</text>
+  <text x="750" y="150" text-anchor="middle" font-size="12" fill="#64748b">n'a pas</text>
+  <text x="750" y="165" text-anchor="middle" font-size="12" fill="#64748b">le choix</text>
+
+  <!-- OK / NON indicators -->
+  <rect x="100" y="185" width="100" height="32" rx="16" fill="#dcfce7"/>
+  <text x="150" y="206" text-anchor="middle" font-size="14" font-weight="600" fill="#16a34a">✅ OK</text>
+
+  <rect x="300" y="185" width="100" height="32" rx="16" fill="#dcfce7"/>
+  <text x="350" y="206" text-anchor="middle" font-size="14" font-weight="600" fill="#16a34a">✅ OK</text>
+
+  <rect x="500" y="185" width="100" height="32" rx="16" fill="#fef2f2"/>
+  <text x="550" y="206" text-anchor="middle" font-size="14" font-weight="600" fill="#dc2626">❌ NON</text>
+
+  <rect x="700" y="185" width="100" height="32" rx="16" fill="#fef2f2"/>
+  <text x="750" y="206" text-anchor="middle" font-size="14" font-weight="600" fill="#dc2626">❌ NON</text>
+
+  <!-- Examples row -->
+  <rect x="50" y="240" width="800" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="70" y="260" font-size="11" font-weight="600" fill="#475569">Exemples :</text>
+  <text x="150" y="280" text-anchor="middle" font-size="11" fill="#64748b">Badges de</text>
+  <text x="150" y="294" text-anchor="middle" font-size="11" fill="#64748b">compétence</text>
+  <text x="350" y="280" text-anchor="middle" font-size="11" fill="#64748b">Nudges vers de</text>
+  <text x="350" y="294" text-anchor="middle" font-size="11" fill="#64748b">bonnes habitudes</text>
+  <text x="550" y="280" text-anchor="middle" font-size="11" fill="#64748b">Fake timers,</text>
+  <text x="550" y="294" text-anchor="middle" font-size="11" fill="#64748b">shame mechanics</text>
+  <text x="750" y="280" text-anchor="middle" font-size="11" fill="#64748b">Pas de opt-out,</text>
+  <text x="750" y="294" text-anchor="middle" font-size="11" fill="#64748b">progress hostage</text>
+
+  <!-- Source -->
+  <text x="450" y="318" text-anchor="middle" font-size="10" fill="#94a3b8">Source : KB-09 Éthique — Framework Sebastian Deterding</text>
+</svg>

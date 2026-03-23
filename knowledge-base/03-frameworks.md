@@ -10,6 +10,8 @@
 
 L'Octalysis est le framework de gamification le plus complet et le plus utilisé. Il identifie **8 Core Drives** (motivations fondamentales) organisés en octogone :
 
+![Radar Octalysis — 8 Core Drives](./visuals/radar-octalysis.svg)
+
 ```
                     1. EPIC MEANING
                    & CALLING

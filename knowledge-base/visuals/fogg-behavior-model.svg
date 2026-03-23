@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <linearGradient id="actionline" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">Modèle de Fogg — B = MAP</text>
+  <text x="350" y="50" text-anchor="middle" font-size="13" fill="#64748b">Comportement = Motivation × Aptitude × Prompt</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="420" x2="620" y2="420" stroke="#1e293b" stroke-width="2"/>
+  <line x1="100" y1="420" x2="100" y2="80" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- X axis label -->
+  <text x="360" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Aptitude (facilité d'action)</text>
+  <text x="130" y="445" font-size="10" fill="#94a3b8">Difficile</text>
+  <text x="580" y="445" text-anchor="end" font-size="10" fill="#94a3b8">Facile</text>
+
+  <!-- Y axis label -->
+  <text x="55" y="250" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b" transform="rotate(-90, 55, 250)">Motivation</text>
+  <text x="85" y="410" text-anchor="end" font-size="10" fill="#94a3b8">Basse</text>
+  <text x="85" y="95" text-anchor="end" font-size="10" fill="#94a3b8">Haute</text>
+
+  <!-- Action line (curve) -->
+  <path d="M 120,100 Q 200,200 350,300 Q 500,390 610,405" fill="none" stroke="url(#actionline)" stroke-width="3"/>
+
+  <!-- Action line label -->
+  <text x="490" y="350" font-size="12" font-weight="700" fill="#6366f1" transform="rotate(-15, 490, 350)">Seuil d'action</text>
+
+  <!-- Above the line: ACTION zone -->
+  <text x="250" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#16a34a">ACTION</text>
+  <text x="250" y="155" text-anchor="middle" font-size="11" fill="#22c55e">Le comportement se produit</text>
+
+  <!-- Below the line: NO ACTION zone -->
+  <text x="450" y="400" text-anchor="middle" font-size="14" font-weight="600" fill="#dc2626">PAS D'ACTION</text>
+
+  <!-- Prompt indicator -->
+  <circle cx="350" cy="250" r="28" fill="#fbbf24" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="350" y="246" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">PROMPT</text>
+  <text x="350" y="260" text-anchor="middle" font-size="9" fill="#92400e">⚡ trigger</text>
+
+  <!-- Example dots -->
+  <!-- High motivation, low ability = still works -->
+  <circle cx="180" cy="130" r="8" fill="#22c55e" opacity="0.8"/>
+  <text x="195" y="125" font-size="9" fill="#166534">Haute motivation</text>
+  <text x="195" y="137" font-size="9" fill="#166534">→ compense difficulté</text>
+
+  <!-- Low motivation, high ability = still works -->
+  <circle cx="530" cy="340" r="8" fill="#22c55e" opacity="0.8"/>
+  <text x="445" y="330" font-size="9" fill="#166534">Très facile</text>
+  <text x="445" y="342" font-size="9" fill="#166534">→ compense faible motivation</text>
+
+  <!-- Fail: low both -->
+  <circle cx="200" cy="380" r="8" fill="#ef4444" opacity="0.8"/>
+  <text x="215" y="377" font-size="9" fill="#991b1b">Trop dur +</text>
+  <text x="215" y="389" font-size="9" fill="#991b1b">pas motivé = échec</text>
+
+  <!-- Design implications -->
+  <rect x="100" y="475" width="520" height="35" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="360" y="497" text-anchor="middle" font-size="11" fill="#475569">
+    <tspan font-weight="600">Design :</tspan> Simplifier l'action (↑ aptitude) est souvent plus efficace que motiver davantage
+  </text>
+
+  <!-- Source -->
+  <text x="350" y="520" text-anchor="middle" font-size="10" fill="#94a3b8">Source : KB-05 Design comportemental — BJ Fogg, Tiny Habits (2019)</text>
+</svg>

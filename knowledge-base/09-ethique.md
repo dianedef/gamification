@@ -8,6 +8,8 @@
 
 ### De la motivation à la manipulation
 
+![Spectre éthique de la gamification](./visuals/spectre-ethique.svg)
+
 ```
 MOTIVATION          PERSUASION         MANIPULATION        COERCITION
     │                   │                   │                   │

@@ -12,6 +12,8 @@ Le modèle Hook, décrit dans *Hooked: How to Build Habit-Forming Products* (201
 
 ### Les 4 phases
 
+![Hook Model — 4 phases](./visuals/hook-model.svg)
+
 ```
 ┌─────────────────────────────────────────────────────┐
 │                                                     │
@@ -116,6 +118,8 @@ L'utilisateur donne quelque chose qui rend le prochain cycle plus probable :
 Le Tiny Habits® de Fogg est une approche de changement comportemental fondée sur la science :
 
 ### B = MAP (Behavior = Motivation × Ability × Prompt)
+
+![Modèle de Fogg — B = MAP](./visuals/fogg-behavior-model.svg)
 
 ```
 Motivation

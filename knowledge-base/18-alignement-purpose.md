@@ -16,6 +16,8 @@ La gamification la plus sophistiquée du monde est un échec si elle pousse l'ut
 
 ### Quand la gamification et l'utilisateur veulent des choses différentes
 
+![Le désalignement silencieux](./visuals/desalignement.svg)
+
 Le désalignement n'est pas toujours visible. Il est souvent ressenti avant d'être compris — un malaise vague, une fatigue inexpliquée, un désintérêt progressif.
 
 ```
@@ -139,6 +141,8 @@ Strava sans les segments               Un tracker vide sans les streaks
 ---
 
 ## 3. Les 3 niveaux d'alignement
+
+![Pyramide des 3 niveaux d'alignement](./visuals/pyramide-alignement.svg)
 
 ### Niveau 1 : Alignement fonctionnel — « Est-ce que ça aide ? »
 
