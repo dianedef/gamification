@@ -6,3 +6,5 @@ site/dist/
 site/.astro/
 site/node_modules/
 .flox/
+ecosystem.config.cjs
+public/
