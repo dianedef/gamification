@@ -17,6 +17,8 @@ La gamification sans mesure, c'est naviguer à l'aveugle. Vous devez pouvoir ré
 
 ### La pyramide de mesure
 
+![Pyramide de mesure](./visuals/pyramide-mesure.svg)
+
 ```
                     ╱╲
                    ╱  ╲

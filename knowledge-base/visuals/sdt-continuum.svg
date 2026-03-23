@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="motivation" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#94a3b8"/>
+      <stop offset="20%" style="stop-color:#ef4444"/>
+      <stop offset="40%" style="stop-color:#f97316"/>
+      <stop offset="60%" style="stop-color:#eab308"/>
+      <stop offset="80%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">Le continuum de la motivation (SDT)</text>
+  <text x="450" y="50" text-anchor="middle" font-size="13" fill="#64748b">Deci &amp; Ryan — De l'amotivation à la motivation intrinsèque</text>
+
+  <!-- Gradient bar -->
+  <rect x="40" y="70" width="820" height="16" rx="8" fill="url(#motivation)"/>
+
+  <!-- Labels: Extrinsèque / Intrinsèque -->
+  <text x="40" y="105" font-size="11" font-weight="600" fill="#94a3b8">← Contrôlé</text>
+  <text x="860" y="105" text-anchor="end" font-size="11" font-weight="600" fill="#6366f1">Autonome →</text>
+
+  <!-- 6 stages -->
+  <!-- Stage 1: Amotivation -->
+  <rect x="20" y="120" width="130" height="140" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="85" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#64748b">Amotivation</text>
+  <line x1="40" y1="155" x2="130" y2="155" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="85" y="175" text-anchor="middle" font-size="10" fill="#94a3b8">« Je m'en fiche »</text>
+  <text x="85" y="200" text-anchor="middle" font-size="9" fill="#94a3b8">Aucune intention</text>
+  <text x="85" y="214" text-anchor="middle" font-size="9" fill="#94a3b8">d'agir</text>
+  <text x="85" y="240" text-anchor="middle" font-size="18">😶</text>
+
+  <!-- Stage 2: Externe -->
+  <rect x="160" y="120" width="130" height="140" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="225" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">Externe</text>
+  <line x1="180" y1="155" x2="270" y2="155" stroke="#fecaca" stroke-width="1"/>
+  <text x="225" y="175" text-anchor="middle" font-size="10" fill="#ef4444">« Pour la</text>
+  <text x="225" y="189" text-anchor="middle" font-size="10" fill="#ef4444">récompense »</text>
+  <text x="225" y="214" text-anchor="middle" font-size="9" fill="#b91c1c">Points, badges,</text>
+  <text x="225" y="228" text-anchor="middle" font-size="9" fill="#b91c1c">punitions</text>
+  <text x="225" y="248" text-anchor="middle" font-size="18">🎁</text>
+
+  <!-- Stage 3: Introjectée -->
+  <rect x="300" y="120" width="130" height="140" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="365" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">Introjectée</text>
+  <line x1="320" y1="155" x2="410" y2="155" stroke="#fed7aa" stroke-width="1"/>
+  <text x="365" y="175" text-anchor="middle" font-size="10" fill="#f97316">« Je devrais »</text>
+  <text x="365" y="200" text-anchor="middle" font-size="9" fill="#c2410c">Culpabilité, ego,</text>
+  <text x="365" y="214" text-anchor="middle" font-size="9" fill="#c2410c">streak anxiety</text>
+  <text x="365" y="240" text-anchor="middle" font-size="18">😰</text>
+
+  <!-- Stage 4: Identifiée -->
+  <rect x="440" y="120" width="130" height="140" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="505" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#ca8a04">Identifiée</text>
+  <line x1="460" y1="155" x2="550" y2="155" stroke="#fde68a" stroke-width="1"/>
+  <text x="505" y="175" text-anchor="middle" font-size="10" fill="#ca8a04">« C'est</text>
+  <text x="505" y="189" text-anchor="middle" font-size="10" fill="#ca8a04">important »</text>
+  <text x="505" y="214" text-anchor="middle" font-size="9" fill="#a16207">Valeur personnelle</text>
+  <text x="505" y="228" text-anchor="middle" font-size="9" fill="#a16207">reconnue</text>
+  <text x="505" y="248" text-anchor="middle" font-size="18">🎯</text>
+
+  <!-- Stage 5: Intégrée -->
+  <rect x="580" y="120" width="130" height="140" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="645" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">Intégrée</text>
+  <line x1="600" y1="155" x2="690" y2="155" stroke="#bbf7d0" stroke-width="1"/>
+  <text x="645" y="175" text-anchor="middle" font-size="10" fill="#22c55e">« Ça fait partie</text>
+  <text x="645" y="189" text-anchor="middle" font-size="10" fill="#22c55e">de moi »</text>
+  <text x="645" y="214" text-anchor="middle" font-size="9" fill="#15803d">Identité,</text>
+  <text x="645" y="228" text-anchor="middle" font-size="9" fill="#15803d">habitude incarnée</text>
+  <text x="645" y="248" text-anchor="middle" font-size="18">💪</text>
+
+  <!-- Stage 6: Intrinsèque -->
+  <rect x="720" y="120" width="160" height="140" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#4338ca">Intrinsèque</text>
+  <line x1="740" y1="155" x2="860" y2="155" stroke="#c7d2fe" stroke-width="1"/>
+  <text x="800" y="175" text-anchor="middle" font-size="10" fill="#6366f1">« J'aime ça »</text>
+  <text x="800" y="200" text-anchor="middle" font-size="9" fill="#4338ca">Plaisir, curiosité,</text>
+  <text x="800" y="214" text-anchor="middle" font-size="9" fill="#4338ca">flow, maîtrise</text>
+  <text x="800" y="240" text-anchor="middle" font-size="18">🌟</text>
+
+  <!-- Bottom annotation -->
+  <rect x="40" y="280" width="820" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="450" y="298" text-anchor="middle" font-size="11" fill="#475569">
+    <tspan font-weight="700" fill="#dc2626">Danger :</tspan> la gamification qui reste à gauche (externe/introjectée) crée de la dépendance fragile
+  </text>
+  <text x="450" y="312" text-anchor="middle" font-size="11" fill="#475569">
+    <tspan font-weight="700" fill="#16a34a">Objectif :</tspan> accompagner le glissement vers la droite (identifiée → intégrée → intrinsèque)
+  </text>
+
+  <!-- Source -->
+  <text x="450" y="340" text-anchor="middle" font-size="10" fill="#94a3b8">Source : KB-02 Psychologie de la motivation — Deci &amp; Ryan (1985, 2000)</text>
+</svg>

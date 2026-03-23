@@ -67,6 +67,8 @@ La SDT est probablement la théorie la plus importante pour la gamification. Ell
 
 ### Le continuum de la motivation (SDT)
 
+![Continuum de la motivation SDT](./visuals/sdt-continuum.svg)
+
 ```
 Motivation          Motivation extrinsèque                    Motivation
   nulle    ──────────────────────────────────────────────     intrinsèque

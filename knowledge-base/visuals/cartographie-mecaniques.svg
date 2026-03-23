@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">Cartographie des mécaniques de jeu</text>
+  <text x="450" y="50" text-anchor="middle" font-size="13" fill="#64748b">7 catégories fonctionnelles — 30+ mécaniques</text>
+
+  <!-- Row 1 -->
+  <!-- 1. Progression -->
+  <rect x="20" y="75" width="240" height="160" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="140" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#4338ca">📈 Progression</text>
+  <text x="35" y="122" font-size="11" fill="#4338ca">Points (XP, SP, RP)</text>
+  <text x="35" y="140" font-size="11" fill="#4338ca">Niveaux</text>
+  <text x="35" y="158" font-size="11" fill="#4338ca">Barres de progression</text>
+  <text x="35" y="176" font-size="11" fill="#4338ca">Milestones</text>
+  <text x="35" y="194" font-size="11" fill="#4338ca">Skill trees</text>
+  <text x="35" y="212" font-size="11" fill="#4338ca">Mastery paths</text>
+
+  <!-- 2. Récompense -->
+  <rect x="280" y="75" width="240" height="160" rx="10" fill="#fefce8" stroke="#eab308" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="400" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#854d0e">🏆 Récompense</text>
+  <text x="295" y="122" font-size="11" fill="#854d0e">Badges / Achievements</text>
+  <text x="295" y="140" font-size="11" fill="#854d0e">Trophées / Couronnes</text>
+  <text x="295" y="158" font-size="11" fill="#854d0e">Loot boxes (éthiques)</text>
+  <text x="295" y="176" font-size="11" fill="#854d0e">Déblocage de contenu</text>
+  <text x="295" y="194" font-size="11" fill="#854d0e">Récompenses variables</text>
+  <text x="295" y="212" font-size="11" fill="#854d0e">Collection sets</text>
+
+  <!-- 3. Social -->
+  <rect x="540" y="75" width="240" height="160" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="660" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">👥 Social</text>
+  <text x="555" y="122" font-size="11" fill="#065f46">Leaderboards</text>
+  <text x="555" y="140" font-size="11" fill="#065f46">Guildes / Équipes</text>
+  <text x="555" y="158" font-size="11" fill="#065f46">Partage d'accomplissements</text>
+  <text x="555" y="176" font-size="11" fill="#065f46">Mentorat</text>
+  <text x="555" y="194" font-size="11" fill="#065f46">Défis collaboratifs</text>
+  <text x="555" y="212" font-size="11" fill="#065f46">Preuve sociale anonyme</text>
+
+  <!-- Row 2 -->
+  <!-- 4. Temporel -->
+  <rect x="20" y="255" width="200" height="160" rx="10" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="120" y="280" text-anchor="middle" font-size="14" font-weight="700" fill="#9d174d">⏰ Temporel</text>
+  <text x="35" y="302" font-size="11" fill="#9d174d">Streaks</text>
+  <text x="35" y="320" font-size="11" fill="#9d174d">Daily rewards</text>
+  <text x="35" y="338" font-size="11" fill="#9d174d">Cooldowns</text>
+  <text x="35" y="356" font-size="11" fill="#9d174d">Événements limités</text>
+  <text x="35" y="374" font-size="11" fill="#9d174d">Appointment dynamics</text>
+  <text x="35" y="392" font-size="11" fill="#9d174d">Countdown timers</text>
+
+  <!-- 5. Défi -->
+  <rect x="240" y="255" width="200" height="160" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="280" text-anchor="middle" font-size="14" font-weight="700" fill="#9a3412">⚔️ Défi</text>
+  <text x="255" y="302" font-size="11" fill="#9a3412">Quêtes / Missions</text>
+  <text x="255" y="320" font-size="11" fill="#9a3412">Boss fights</text>
+  <text x="255" y="338" font-size="11" fill="#9a3412">Puzzles</text>
+  <text x="255" y="356" font-size="11" fill="#9a3412">Difficulté adaptative</text>
+  <text x="255" y="374" font-size="11" fill="#9a3412">Challenges (solo/coop)</text>
+  <text x="255" y="392" font-size="11" fill="#9a3412">Combos / Chains</text>
+
+  <!-- 6. Narratif -->
+  <rect x="460" y="255" width="200" height="160" rx="10" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="560" y="280" text-anchor="middle" font-size="14" font-weight="700" fill="#5b21b6">📖 Narratif</text>
+  <text x="475" y="302" font-size="11" fill="#5b21b6">Storyline / Arcs</text>
+  <text x="475" y="320" font-size="11" fill="#5b21b6">Easter eggs</text>
+  <text x="475" y="338" font-size="11" fill="#5b21b6">Exploration / Découverte</text>
+  <text x="475" y="356" font-size="11" fill="#5b21b6">Avatars / Personnages</text>
+  <text x="475" y="374" font-size="11" fill="#5b21b6">Zones / Mondes</text>
+  <text x="475" y="392" font-size="11" fill="#5b21b6">Lore caché</text>
+
+  <!-- 7. Feedback -->
+  <rect x="680" y="255" width="200" height="160" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="780" y="280" text-anchor="middle" font-size="14" font-weight="700" fill="#0c4a6e">✨ Feedback</text>
+  <text x="695" y="302" font-size="11" fill="#0c4a6e">Animations / Confetti</text>
+  <text x="695" y="320" font-size="11" fill="#0c4a6e">Sons de récompense</text>
+  <text x="695" y="338" font-size="11" fill="#0c4a6e">Toasts / Notifications</text>
+  <text x="695" y="356" font-size="11" fill="#0c4a6e">Haptic feedback</text>
+  <text x="695" y="374" font-size="11" fill="#0c4a6e">Micro-interactions</text>
+  <text x="695" y="392" font-size="11" fill="#0c4a6e">Score recap / Résumé</text>
+
+  <!-- Cross-references -->
+  <rect x="20" y="435" width="860" height="30" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="450" y="455" text-anchor="middle" font-size="11" fill="#64748b">Chaque mécanique peut être mappée sur un ou plusieurs Core Drives Octalysis (voir KB-03) et évaluée éthiquement (voir KB-09)</text>
+
+  <!-- Source -->
+  <text x="450" y="478" text-anchor="middle" font-size="10" fill="#94a3b8">Source : KB-04 Catalogue des mécaniques de jeu</text>
+</svg>

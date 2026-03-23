@@ -6,6 +6,8 @@
 
 ## Classification des mécaniques
 
+![Cartographie des mécaniques de jeu](./visuals/cartographie-mecaniques.svg)
+
 Les mécaniques sont organisées en 7 catégories fonctionnelles :
 
 1. **Progression** — Avancer, grandir, évoluer
