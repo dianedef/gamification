@@ -1,24 +1,24 @@
 ---
 artifact: brand_context
 metadata_schema_version: "1.0"
-artifact_version: "0.1.0"
+artifact_version: "1.0.0"
 project: gamification
 created: "2026-04-25"
-updated: "2026-04-25"
-status: draft
+updated: "2026-04-26"
+status: active
 source_skill: sf-docs
 scope: brand
-owner: unknown
-confidence: low
-risk_level: medium
-security_impact: unknown
+owner: diane-winflowz
+confidence: medium
+risk_level: low
+security_impact: low
 docs_impact: yes
 brand_voice: unknown
 trust_posture: unknown
 depends_on: []
 supersedes: []
 evidence: []
-next_review: "unknown"
+next_review: "2026-07-26"
 next_step: /sf-docs audit BRANDING.md
 ---
 # Branding — @diane-winflowz/gamification

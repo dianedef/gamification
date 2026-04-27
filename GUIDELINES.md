@@ -1,23 +1,23 @@
 ---
 artifact: technical_guidelines
 metadata_schema_version: "1.0"
-artifact_version: "0.1.0"
+artifact_version: "1.0.0"
 project: gamification
 created: "2026-04-25"
-updated: "2026-04-25"
-status: draft
+updated: "2026-04-26"
+status: active
 source_skill: sf-docs
 scope: guidelines
-owner: unknown
-confidence: low
-risk_level: medium
-security_impact: unknown
+owner: diane-winflowz
+confidence: medium
+risk_level: low
+security_impact: low
 docs_impact: yes
 linked_systems: []
 depends_on: []
 supersedes: []
 evidence: []
-next_review: "unknown"
+next_review: "2026-07-26"
 next_step: /sf-docs audit GUIDELINES.md
 ---
 # Guidelines — @diane-winflowz/gamification
